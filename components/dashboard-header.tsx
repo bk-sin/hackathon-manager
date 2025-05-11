@@ -14,6 +14,7 @@ import {
   Users,
 } from "lucide-react";
 import { UserButton } from "@clerk/nextjs";
+import { useSyncUser } from "@/hooks/useSyncUser";
 
 const navigation = [
   { name: "Dashboard", href: "/dashboard", icon: LayoutDashboard },
@@ -26,7 +27,7 @@ const navigation = [
 export default function DashboardHeader() {
   const pathname = usePathname();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-
+  useSyncUser();
   return (
     <header className="sticky top-0 z-40 border-b bg-background ">
       <div className="container flex h-16 items-center justify-between py-4 justify-self-center px-4 md:px-8">
